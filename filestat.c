@@ -50,11 +50,11 @@ void usage(void)
 void print_stat(dvd_stat_t *buf)
 {
   
-  printf("size: %lld", buf->size);
+  printf("size: %lld", (long long)buf->size);
   if(buf->nr_parts > 1) {
     int n;
     for(n = 0; n < buf->nr_parts; n++) {
-      printf(", [%lld]", buf->parts_size[n]);
+      printf(", [%lld]", (long long)buf->parts_size[n]);
     }
   }
 }
@@ -109,7 +109,6 @@ void print_size(dvd_reader_t *dvd, int titlenum,
 
 int main(int argc, char *argv[])
 {
-  int i;
   int err = 0;
 
   dvd_reader_t *dvd;
@@ -126,7 +125,6 @@ int main(int argc, char *argv[])
   if( dvd ) {
     ifo_handle_t *vmg_ifo;
     int title_sets;
-    dvd_stat_t buf;
     int n;
 
 

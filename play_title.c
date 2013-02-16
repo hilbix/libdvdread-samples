@@ -219,7 +219,7 @@ int main( int argc, char **argv )
              cur_pack < cur_pgc->cell_playback[ cur_cell ].last_sector; ) {
 
             dsi_t dsi_pack;
-            unsigned int next_vobu, next_ilvu_start, cur_output_size;
+            unsigned int next_vobu, cur_output_size;
 
 
             /**
@@ -248,8 +248,10 @@ int main( int argc, char **argv )
              * Determine where we go next.  These values are the ones we mostly
              * care about.
              */
+#if 0
             next_ilvu_start = cur_pack
                               + dsi_pack.sml_agli.data[ angle ].address;
+#endif
             cur_output_size = dsi_pack.dsi_gi.vobu_ea;
 
 
